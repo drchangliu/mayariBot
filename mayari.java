@@ -95,7 +95,7 @@ public class mayari extends AIWithComputationBudget {
     List<Unit> _enemiesCombat;
 
     List<Unit> _all;    
-    HashMap<Unit, Integer> _newDmgs;
+    HashMap<Unit, Integer> _newDmgs; // damage
 
     public void restartPathFind() {
         _astarPath = new AStarPathFinding();
@@ -1034,7 +1034,7 @@ public class mayari extends AIWithComputationBudget {
         int enemyPower = defender.getMaxDamage(); //defender.getMaxHitPoints();
         
         int archerToWorker = (attacker.getType() == _utt.getUnitType("Ranged") && //todo big change this was Ranger instead of Ranged
-                defender.getType() == _utt.getUnitType("Worker")) ? 1 : 0;  //to do this was 1: 0 
+                defender.getType() == _utt.getUnitType("Worker")) ? 1 : 0;  //todo this was 1: 0 
         
         return 1000*attackSucc + 100 * willKill + (archerToWorker + enemyPower) * 10 + threatened;
     }
